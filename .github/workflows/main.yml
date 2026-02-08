@@ -2,15 +2,15 @@ name: Ekonomi Portali Guncelle
 
 on:
   schedule:
-    # 08:00 TR (05:00 UTC) ve 15:00 TR (12:00 UTC)
-    - cron: '0 5,12 * * *'
+    # 💡 HER SAAT BAŞI (Örn: 08:00, 09:00, 10:00...)
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # 💡 Kritik: Dosyayı repoya geri yüklemek için bu izin şart!
+      contents: write 
     steps:
       - name: Kodlari cek
         uses: actions/checkout@v2
@@ -34,5 +34,5 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add index.html
-          git commit -m "Ekonomi portalı otomatik güncellendi" || exit 0
+          git commit -m "Ekonomi portalı saatlik güncellendi" || exit 0
           git push
