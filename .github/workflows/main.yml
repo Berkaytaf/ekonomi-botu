@@ -1,25 +1,38 @@
-name: Ekonomi Botu Calistir
+name: Ekonomi Portali Guncelle
 
 on:
   schedule:
     # 08:00 TR (05:00 UTC) ve 15:00 TR (12:00 UTC)
     - cron: '0 5,12 * * *'
-  workflow_dispatch: # Bu satır "Run workflow" butonunu aktif eder
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # 💡 Kritik: Dosyayı repoya geri yüklemek için bu izin şart!
     steps:
       - name: Kodlari cek
         uses: actions/checkout@v2
+        
       - name: Python Kur
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
+          
       - name: Kutuphaneleri yukle
         run: pip install -r requirements.txt
-      - name: Botu calistir
+        
+      - name: Botu calistir ve Sayfayi Olustur
         env:
           TELE_TOKEN: ${{ secrets.TELE_TOKEN }}
           TELE_CHAT_ID: ${{ secrets.TELE_CHAT_ID }}
         run: python ekonomi_bot.py
+        
+      - name: index.html Dosyasini Guncelle ve Yukle
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add index.html
+          git commit -m "Ekonomi portalı otomatik güncellendi" || exit 0
+          git push
