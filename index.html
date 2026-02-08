@@ -4,63 +4,56 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Canlı Ekonomi Takip Portalı</title>
+        <title>Ekonomi Takip Merkezi</title>
         <style>
-            body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #f8fafc; text-align: center; padding: 20px; }
-            .container { max-width: 800px; margin: auto; }
-            .card-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
-            .card { background: #1e293b; padding: 20px; border-radius: 12px; width: 220px; border: 1px solid #334155; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
-            .price { font-size: 1.8em; color: #fbbf24; font-weight: bold; margin: 10px 0; }
-            .label { color: #94a3b8; font-weight: 600; }
-            .news-section { margin-top: 40px; text-align: left; background: #1e293b; padding: 20px; border-radius: 12px; }
-            .news-item { border-bottom: 1px solid #334155; padding: 10px 0; }
-            .news-item a { color: #38bdf8; text-decoration: none; font-weight: 500; }
-            .news-item a:hover { text-decoration: underline; }
-            .footer { margin-top: 30px; color: #64748b; font-size: 0.8em; }
+            body { font-family: 'Inter', sans-serif; background: #0b0f19; color: #e2e8f0; margin: 0; padding: 20px; }
+            .header { text-align: center; margin-bottom: 30px; }
+            .price-bar { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+            .price-card { background: #1e293b; padding: 15px 25px; border-radius: 10px; border: 1px solid #334155; min-width: 180px; }
+            .price-card span { display: block; font-size: 0.8em; color: #94a3b8; }
+            .price-card b { font-size: 1.5em; color: #fbbf24; }
+            
+            .window-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
+            .window { background: #111827; border-radius: 12px; border: 1px solid #1f2937; overflow: hidden; }
+            .window-header { background: #1f2937; padding: 10px 15px; font-weight: bold; font-size: 0.9em; display: flex; align-items: center; }
+            .window-header::before { content: ''; width: 10px; height: 10px; background: #ef4444; border-radius: 50%; margin-right: 8px; box-shadow: 15px 0 #fbbf24, 30px 0 #22c55e; }
+            .window-content { padding: 15px; min-height: 150px; }
+            
+            .news-item { border-bottom: 1px solid #1f2937; padding: 8px 0; font-size: 0.9em; }
+            .news-item:last-child { border: none; }
+            .news-item a { color: #38bdf8; text-decoration: none; line-height: 1.4; }
+            .news-item a:hover { color: #7dd3fc; }
+            .footer { text-align: center; margin-top: 40px; color: #4b5563; font-size: 0.8em; }
         </style>
     </head>
     <body>
-        <div class="container">
-            <h1>📈 Canlı Ekonomi Takip</h1>
-            <p>Piyasalardaki anlık değişimler ve son haberler.</p>
-            
-            <div class="card-grid">
-                <div class="card"><div class="label">Gram Altın</div><div class="price">6941.33 TL</div></div>
-                <div class="card"><div class="label">Gram Gümüş</div><div class="price">107.58 TL</div></div>
-                <div class="card"><div class="label">Dolar / TL</div><div class="price">43.61 TL</div></div>
-            </div>
+        <div class="header">
+            <h1>📊 Ekonomi Takip Merkezi</h1>
+            <p>Veriler saatlik olarak otomatik güncellenmektedir.</p>
+        </div>
 
-            <div class="news-section">
-                <h3>📰 Son Gelişmeler</h3>
-                
-        <div class="news-item">
-            <a href="#" target="_blank">Haber Başlığı Yok</a>
-            <p style="font-size: 0.8em; color: #888;">Kaynak: Ekonomi Servisi</p>
+        <div class="price-bar">
+            <div class="price-card"><span>Gram Altın</span><b>6941.33 TL</b></div>
+            <div class="price-card"><span>Gram Gümüş</span><b>107.58 TL</b></div>
+            <div class="price-card"><span>Dolar / TL</span><b>43.61 TL</b></div>
         </div>
-        <div class="news-item">
-            <a href="#" target="_blank">Haber Başlığı Yok</a>
-            <p style="font-size: 0.8em; color: #888;">Kaynak: Ekonomi Servisi</p>
-        </div>
-        <div class="news-item">
-            <a href="#" target="_blank">Haber Başlığı Yok</a>
-            <p style="font-size: 0.8em; color: #888;">Kaynak: Ekonomi Servisi</p>
-        </div>
-        <div class="news-item">
-            <a href="#" target="_blank">Haber Başlığı Yok</a>
-            <p style="font-size: 0.8em; color: #888;">Kaynak: Ekonomi Servisi</p>
-        </div>
-        <div class="news-item">
-            <a href="#" target="_blank">Haber Başlığı Yok</a>
-            <p style="font-size: 0.8em; color: #888;">Kaynak: Ekonomi Servisi</p>
-        </div>
-        <div class="news-item">
-            <a href="#" target="_blank">Haber Başlığı Yok</a>
-            <p style="font-size: 0.8em; color: #888;">Kaynak: Ekonomi Servisi</p>
-        </div>
-            </div>
 
-            <div class="footer">Son Güncelleme: 08/02/2026 01:03 | Veriler hobi amaçlıdır.</div>
+        <div class="window-grid">
+            <div class="window">
+                <div class="window-header">Altın Haberleri</div>
+                <div class="window-content"><div class="news-item"><a href="#" target="_blank">● Başlık Yok</a></div><div class="news-item"><a href="#" target="_blank">● Başlık Yok</a></div><div class="news-item"><a href="#" target="_blank">● Başlık Yok</a></div></div>
+            </div>
+            <div class="window">
+                <div class="window-header">Gümüş Haberleri</div>
+                <div class="window-content"><div class="news-item"><a href="#" target="_blank">● Başlık Yok</a></div><div class="news-item"><a href="#" target="_blank">● Başlık Yok</a></div><div class="news-item"><a href="#" target="_blank">● Başlık Yok</a></div></div>
+            </div>
+            <div class="window">
+                <div class="window-header">Genel Ekonomi</div>
+                <div class="window-content"><p style='color:#64748b;'>Genel Ekonomi için şu an yeni haber yok.</p></div>
+            </div>
         </div>
+
+        <div class="footer">Son Güncelleme: 08/02/2026 01:13 | Kaynak: Yahoo Finance</div>
     </body>
     </html>
     
