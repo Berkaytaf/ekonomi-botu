@@ -1,0 +1,25 @@
+name: Ekonomi Botu Calistir
+
+on:
+  schedule:
+    # 08:00 TR (05:00 UTC) ve 15:00 TR (12:00 UTC)
+    - cron: '0 5,12 * * *'
+  workflow_dispatch: # Bu satır "Run workflow" butonunu aktif eder
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodlari cek
+        uses: actions/checkout@v2
+      - name: Python Kur
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Kutuphaneleri yukle
+        run: pip install -r requirements.txt
+      - name: Botu calistir
+        env:
+          TELE_TOKEN: ${{ secrets.TELE_TOKEN }}
+          TELE_CHAT_ID: ${{ secrets.TELE_CHAT_ID }}
+        run: python ekonomi_bot.py
